@@ -27,18 +27,22 @@ void m_j_007(){
 	for(int i=0;i<n;i++){
 		cin>>a[i];
 	}
+	int prev=31;
 	while(q--){
 		int k;
 		cin>>k;
+		if(k >= prev) continue;
 		for(int i=0;i<n;i++){
-			if(a[i]%(1<<(k)) == 0){
+			if(a[i]% (1<<(k)) == 0){
 				a[i] += (1<<(k-1));
 			}
+			prev=k;
 		}
 	}
 	for(auto i:a) cout<<i<<" ";
 	cout<<endl;
 }
+
 int main()
 {
 	int t;
